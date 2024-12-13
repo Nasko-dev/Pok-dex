@@ -3,7 +3,7 @@ interface PokemonProps {
   imgSrc?: number;
 }
 
-function PokemonCard({ pokemon }: PokemonProps) {
+function PokemonCard({ pokemon}: PokemonProps) {
   return (
     <figure>
       {pokemon.imgSrc ? (
