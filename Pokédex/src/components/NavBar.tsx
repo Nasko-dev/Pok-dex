@@ -11,10 +11,18 @@ interface NavBarProps {
 }
 
 const Navbar: React.FC<NavBarProps> = ({ setPokemonIndex, pokemonList }) => {
+  const handleClick = (index: number) => {
+
+    setPokemonIndex(index);
+    if (pokemonList[index].name === "pikachu") {
+      alert("pika pikachu !!!");
+    }
+  };
+
   return (
     <nav>
       {pokemonList.map((pokemon, index) => (
-        <button key={pokemon.name} onClick={() => setPokemonIndex(index)}>
+        <button key={pokemon.name} onClick={() => handleClick(index)}>
           {pokemon.name}
         </button>
       ))}

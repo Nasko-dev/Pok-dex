@@ -1,9 +1,13 @@
-import React, { useState } from "react"; // Assure-toi d'importer useState
+import React, { useEffect, useState } from "react"; // Assure-toi d'importer useState
 import PokemonCard from "./components/PokemonCard";
 import NavBar from "./components/NavBar";
 import "./App.css";
 
 function App() {
+  useEffect(() => {
+    alert("hello pokemon trainer :)");
+  }, []);
+
   const [pokemonIndex, setPokemonIndex] = useState(0); // Initialisation du state pokemonIndex
 
   const pokemonList = [
