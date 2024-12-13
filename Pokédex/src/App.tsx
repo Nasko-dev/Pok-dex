@@ -3,7 +3,7 @@ import PokemonCard from "./components/PokemonCard";
 import { useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [pokemonIndex, setPokemonIndex] = useState(0);
 
   const pokemonList = [
     {
@@ -30,35 +30,19 @@ function App() {
       name: "mew",
     },
   ];
-  const handleNext = () => {
-    if (count < pokemonList.length - 1) {
-      setCount(count + 1);
-    }
-  };
-
-  const handlePrevious = () => {
-    if (count > 0) {
-      setCount(count - 1);
-    }
-  };
 
   return (
     <>
+      <nav>
+        {pokemonList.map((pokemon, index) => (
+          <button key={pokemon.name} onClick={() => setPokemonIndex(index)}>
+            {pokemon.name}
+          </button>
+        ))}
+      </nav>
       <div>
-        {/* Afficher la carte du Pokémon actuel */}
-        <PokemonCard pokemon={pokemonList[count]} />
+        <PokemonCard pokemon={pokemonList[pokemonIndex]} />
       </div>
-      {/* Boutons pour changer le Pokémon */}
-      {count > 0 && (
-        <button type="button" onClick={handlePrevious}>
-          Précédent
-        </button>
-      )}
-      {count < pokemonList.length - 1 && (
-        <button type="button" onClick={handleNext}>
-          Suivant
-        </button>
-      )}
     </>
   );
 }
