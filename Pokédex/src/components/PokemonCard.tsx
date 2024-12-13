@@ -1,11 +1,13 @@
+import "../App.css";
+
 interface PokemonProps {
   name: string;
   imgSrc?: number;
 }
 
-function PokemonCard({ pokemon}: PokemonProps) {
+function PokemonCard({ pokemon }: PokemonProps) {
   return (
-    <figure>
+    <figure className="Test">
       {pokemon.imgSrc ? (
         <img src={pokemon.imgSrc} alt={pokemon.name} />
       ) : (

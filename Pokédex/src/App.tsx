@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react"; // Assure-toi d'importer useState
 import PokemonCard from "./components/PokemonCard";
-import { useState } from "react";
+import NavBar from "./components/NavBar";
+import "./App.css";
 
 function App() {
-  const [pokemonIndex, setPokemonIndex] = useState(0);
+  const [pokemonIndex, setPokemonIndex] = useState(0); // Initialisation du state pokemonIndex
 
   const pokemonList = [
     {
@@ -32,18 +33,11 @@ function App() {
   ];
 
   return (
-    <>
-      <nav>
-        {pokemonList.map((pokemon, index) => (
-          <button key={pokemon.name} onClick={() => setPokemonIndex(index)}>
-            {pokemon.name}
-          </button>
-        ))}
-      </nav>
-      <div>
-        <PokemonCard pokemon={pokemonList[pokemonIndex]} />
-      </div>
-    </>
+    <div className="Test">
+      {/* Passer setPokemonIndex et pokemonList à NavBar */}
+      <NavBar setPokemonIndex={setPokemonIndex} pokemonList={pokemonList} />
+      <PokemonCard pokemon={pokemonList[pokemonIndex]} />
+    </div>
   );
 }
 
